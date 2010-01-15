@@ -94,6 +94,9 @@ module SimpleNavigation
               if c.has_key?(:except)
                 current &= !((c[:except].is_a?(Array) ? c[:except] : [c[:except]]).include?(controller.params[:action]))
               end
+              if c.has_key?(:id)
+                current &= c[:id].to_s == controller.params[:id].to_s
+              end
             end
           end
         end
