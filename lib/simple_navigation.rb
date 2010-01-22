@@ -65,13 +65,13 @@ module SimpleNavigation
         if menu.has_key?(:title)
           title = t(menu[:translation], :default => menu[:title])
         else
-          title = t(menu[:translation], :default => menu[:name].to_s.titleize)
+          title = t(menu[:translation], :default => menu[:name].to_s)
         end
       else
         if menu.has_key?(:title)
           title = menu[:title]
         else
-          title = menu[:name].to_s.titleize
+          title = menu[:name].to_s
         end
       end
       title = link_to(title, url_for(menu[:url])) if menu.has_key?(:url)
